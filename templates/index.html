@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet", href="static/style.css">
+</head>
+<body>
+    <h1>Welcome to the Mini mars rover server!</h1>
+    <h2>At the time : {{time}}</h2>
+    <h2>The first IR sensor value is : {{IR1_data}}</h2>
+    <h2>The second IR sensor value is : {{IR2_data}}</h2>
+    <h2>The humidity is : {{humidity}}</h2>
+    <h2>The temperature is : {{temperature}}</h2>
+    <h2>The mositure sensor value is : {{mositure}}</h2>
+    
+</body>
+<script>
+    document.addEventListener('keydown', (event) => {
+        if(event.key === 'a') {
+            $.ajax({
+                url: '/',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify('l')
+            });
+
+        }
+        if(event.key === 'w') {
+            $.ajax({
+                url: '/',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify('f')
+            });
+
+        }
+        if(event.key === 's') {
+            $.ajax({
+                url: '/',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify('b')
+            });
+
+        }
+        if(event.key === 'd') {
+            $.ajax({
+                url: '/',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify('r')
+            });
+
+        }
+    });
+    document.addEventListener('keyup', (event) => {
+        $.ajax({
+                url: '/',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify('s')
+        });
+    });
+</script>
+</html>
